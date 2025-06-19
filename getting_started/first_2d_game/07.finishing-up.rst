@@ -12,10 +12,18 @@ Background
 ----------
 
 The default gray background is not very appealing, so let's change its color.
-One way to do this is to use a :ref:`ColorRect <class_ColorRect>` node. Make it
-the first node under ``Main`` so that it will be drawn behind the other nodes.
-``ColorRect`` only has one property: ``Color``. Choose a color you like and
-select "Layout" -> "Anchors Preset" -> "Full Rect" either in the toolbar at the top of the viewport or in the inspector so that it covers the screen.
+One way to do this is to use a :ref:`ColorRect <class_ColorRect>` node but you 
+can't just place one directly under the root node. We need a 
+:ref:`CanvasLayer <class_CanvasLayer>` which is designed for UI elements and 2D 
+rendering. We used one for the HUD earlier. This time we'll place one just beneath 
+the root node. Then we'll place the ColorRect under it. This ensures proper 
+scaling and positioning relative to the viewport. Add a CanvasLayer node as the 
+root and call it ``BackgroundCanvas``. Make it the first node under ``Main`` so 
+that it will be drawn behind the other nodes. Add a ColorRect node as a child of 
+the CanvasLayer. ``ColorRect`` only has one property: ``Color``. Choose a color 
+you like and select "Layout" -> "Anchors Preset" -> "Full Rect" either in the 
+toolbar at the top of the viewport or in the inspector so that it covers the
+screen.
 
 You could also add a background image, if you have one, by using a
 :ref:`TextureRect <class_TextureRect>` node instead.
